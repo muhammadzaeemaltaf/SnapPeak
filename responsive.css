@@ -130,6 +130,10 @@
     #count {
         bottom: 1.5%;
     }
+
+    .show-scroll {
+        bottom: 2rem;
+    }
 }
 
 @media screen and (max-width: 680px) {

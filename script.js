@@ -1,3 +1,13 @@
+// Blur Header
+const blurlHeader = () => {
+  const header = document.getElementById("header");
+  // Add a class if the bottom offset is greater than 50 of the viewport
+  this.scrollY >= 50
+    ? header.classList.add("blur-header")
+    : header.classList.remove("blur-header");
+};
+window.addEventListener("scroll", blurlHeader);
+
 // variables declaration
 
 let prev = document.querySelector(".prev");
@@ -88,6 +98,7 @@ const fetchData = async (page = 1) => {
 };
 
 const displayImages = (imagesArray) => {
+  console.log("Show Images");
   errorAlert.innerHTML = "";
   if (imagesArray.length === 0) {
     handle();
@@ -188,7 +199,9 @@ const fetchSearchData = async (key, page = 1) => {
       return;
     }
     const data = await response.json();
-
+    if (data) {
+      console.log("Successfully Search data");
+    }
     if (data.total_pages > 1) {
       showMoreBtn.style.display = "block";
     } else {
@@ -248,17 +261,12 @@ let handle = function (err) {
   errorAlert.innerHTML = `<h4 class="overflow-hidden text-white"> Unable to found data <h4>`;
 };
 
-function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-}
+const scrollUp = () => {
+  const scrollUp = document.getElementById("backToTopBtn");
+  // When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scrollup class
+  this.scrollY >= 350
+    ? scrollUp.classList.add("show-scroll")
+    : scrollUp.classList.remove("show-scroll");
 
-window.onscroll = function () {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("backToTopBtn").style.display = "block";
-  } else {
-    document.getElementById("backToTopBtn").style.display = "none";
-  }
 };
+window.addEventListener("scroll", scrollUp,);
