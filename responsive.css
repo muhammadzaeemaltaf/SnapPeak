@@ -185,7 +185,7 @@
 
 @media screen and (max-width: 440px) {
     .navbar-brand span {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .navbar-toggler span {
